@@ -1,5 +1,5 @@
 import React from 'react'
-import  reactDOM  from 'react-dom'
+import  reactDOM  from 'react-dom/client'
 import App from './App.js'
 
-reactDOM.render(<App/>, document.getElementById('root'))
+reactDOM.createRoot(document.getElementById("root")).render(<App />);
