@@ -1,30 +1,37 @@
+import { charactersList } from "./charactersList";
+
 let characters = "";
 let passwordLength = 0;
+let strength;
 
 const setUpperCase = (isUpperCase) => {
   if (isUpperCase) {
-    characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    characters += charactersList.upperCase;
+    strength += 5;
   }
   return "";
 };
 
 const setLowerCase = (isLowerCase) => {
   if (isLowerCase) {
-    characters += "abcdefghijklmnopqrstuvwxyz";
+    characters += charactersList.lowerCase;
+    strength += 3;
   }
   return "";
 };
 
 const setSymbols = (isSymbol) => {
   if (isSymbol) {
-    characters += "!@#$%^&*()<>,.?/[]{}-=_+|/";
+    characters += charactersList.symbol;
+    strength += 10;
   }
   return "";
 };
 
 const setNumber = (isNumeric) => {
   if (isNumeric) {
-    characters += "0123456789";
+    characters += charactersList.numeric;
+    strength += 7;
   }
   return "";
 };
@@ -46,6 +53,7 @@ const passwordCharacters = () => {
 // the functions that will actually be imported
 export const setPasswordLength = (length) => {
   passwordLength = length;
+  strength += parseInt(passwordLength);
   return passwordLength;
 };
 
@@ -55,11 +63,12 @@ export const generatePassword = (passwordProps, pwdLength) => {
   const notEmpty = !!Object.values(passwordProps).filter(
     (value) => value === true
   ).length;
+  strength = 0;
   setPasswordLength(pwdLength);
   setUpperCase(uppercase);
   setLowerCase(lowercase);
   setSymbols(symbols);
   setNumber(numbers);
   const password = notEmpty ? passwordCharacters() : "Your Mom";
-  return password;
+  return [password, strength];
 };

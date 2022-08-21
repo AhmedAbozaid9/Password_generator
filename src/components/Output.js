@@ -1,23 +1,32 @@
 import React from "react";
 
-export default function Output({ password }) {
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+export default function Output({ password:[password,strength] }) {
+
   return (
-    <div className="flex mb-5">
+    <div className="flex mb-5 rounded-md overflow-hidden">
       <input
         type="text"
         readOnly
-        className="bg-gray-200 outline-none cursor-pointer w-full px-2 text-lg"
+        className="bg-clicked outline-none cursor-pointer w-full px-2 text-lg"
         value={password}
       />
       <button
-        className="bg-gray-100 active:bg-green-500 px-4 py-2 font-medium"
+        className="bg-secondary active:bg-clicked px-4 py-2 font-medium"
         onClick={() => {
           navigator.clipboard.writeText(password);
-
+          toast.success("Password has been copied to your clipboard!", {
+            position: toast.POSITION.BOTTOM_CENTER,
+            autoClose: 2000,
+          });
         }}
       >
         Copy
       </button>
+      <ToastContainer />
+      <div>{strength}</div>
     </div>
   );
 }

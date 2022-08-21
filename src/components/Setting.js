@@ -6,7 +6,7 @@ export default function Setting({ label, checked, setProp }) {
       <span>{label}</span>
       <input
         type="checkbox"
-        className="w-4 h-4 md:w-5 md:h-5 cursor-pointer"
+        className="w-4 h-4 md:w-5 md:h-5 cursor-pointer accent-secondary"
         checked={checked}
         onChange={() => {
           setProp(!checked);

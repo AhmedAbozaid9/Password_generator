@@ -5,6 +5,7 @@ export default function Slider({ label, value, setLength }) {
     <label className="w-72 text-lg md:w-96 md:text-xl flex items-center justify-between m-2 cursor-pointer">
       <span>{label}</span>
       <input
+        className="accent-secondary"
         type="range"
         min="8"
         max="20"
