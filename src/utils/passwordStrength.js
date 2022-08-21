@@ -1,14 +1,8 @@
- function passwordStrength(strength) {
-  switch (strength) {
-    case strength < 22:
-      return "weak";
-    case strength < 30:
-      return "medium";
-    case strength < 45:
-      return "strong";
-    default:
-      return "weak";
-  }
+ export default function passwordStrength(strength) {
+  if(strength < 22) return "weak"
+  if(strength < 30) return "medium"
+  if(strength < 50) return "strong"
+
+  return "weak"
 }
 
-console.log(passwordStrength(30))
