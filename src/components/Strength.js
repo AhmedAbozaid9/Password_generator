@@ -4,11 +4,12 @@ import passwordStrength from "../utils/passwordStrength";
 
 
 function Strength({strength}) {
-  const result = passwordStrength(strength)
- console.log(result)
-  return (
-    <div className={`bg-${result} w-full bottom-5 h-1`}></div>
-  )
+ const result = `bg-${passwordStrength(strength)}`;
+
+
+ return (
+   <div className={`${result} w-full absolute top-full rounded-md h-1`}>{result}</div>
+ );
 }
 
 export default Strength

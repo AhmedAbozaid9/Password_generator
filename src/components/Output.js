@@ -8,14 +8,15 @@ import Strength from "./Strength";
 export default function Output({ password:[password,strength] }) {
   
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col relative">
       <div className="flex mb-5 rounded-md overflow-hidden">
-        <input
+        <div
           type="text"
           readOnly
-          className="bg-clicked outline-none cursor-pointer w-full px-2 text-lg"
-          value={password}
-        />
+          className="bg-clicked outline-none cursor-pointer w-full px-2 text-lg flex items-center"
+        >
+          {password}
+        </div>
         <button
           className="bg-secondary active:bg-clicked px-4 py-2 font-medium"
           onClick={() => {
@@ -29,8 +30,8 @@ export default function Output({ password:[password,strength] }) {
           Copy
         </button>
         <ToastContainer />
-        </div>
         <Strength strength={strength} />
+      </div>
     </div>
   );
 }
