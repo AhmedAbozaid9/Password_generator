@@ -1,15 +1,14 @@
-import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import Strength from "./Strength";
 
 
-export default function Output({ password:[password,strength] }) {
+export default function Output({ password:[password,strength], showStrength }) {
   
   return (
     <div className="flex flex-col relative">
-      <div className="flex rounded-md overflow-hidden">
+      <div className="flex rounded-t-md overflow-hidden">
         <div
           type="text"
           readOnly
@@ -30,7 +29,7 @@ export default function Output({ password:[password,strength] }) {
           Copy
         </button>
         <ToastContainer />
-        <Strength strength={strength} />
+        {showStrength && <Strength strength={strength} />}
       </div>
     </div>
   );

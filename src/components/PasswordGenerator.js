@@ -12,18 +12,21 @@ export default function PasswordGenerator() {
   const [symbols, setSymbols] = useState(false);
   const [password, setPassword] = useState("");
 
+  const [showStrength, setShowStrength] = useState(false);
+
   return (
     <div className="flex flex-col w-fit mx-auto my-5 md:my-10 p-2 md:p-6 rounded-md bg-primary text-stone-900 shadow-md">
       <h1 className="text-3xl text-stone-900 m-5 text-center font-semibold">
         Password Generator
       </h1>
-      <Output password={password} />
+      <Output password={password} showStrength = {showStrength}/>
       <button
         className="bg-secondary p-3 mb-5 mt-10 text-white active:bg-clicked rounded-md text-lg"
         onClick={() => {
           setPassword(
             generatePassword({ uppercase, lowercase, numbers, symbols }, length)
           );
+          setShowStrength(!showStrength)
         }}
       >
         Generate Password

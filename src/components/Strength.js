@@ -7,7 +7,7 @@ function Strength({ strength }) {
   const result = passwordStrength(strength);
 
   return (
-    <div style={{backgroundColor:colors[result]}} className={`${result} w-full absolute top-full rounded-md h-1`}></div>
+    <div style={{backgroundColor:colors[result]}} className={`${result} w-full absolute top-full rounded-b-md h-1`}></div>
   );
 }
 
