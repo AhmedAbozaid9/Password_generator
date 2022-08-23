@@ -9,7 +9,7 @@ export default function Output({ password:[password,strength] }) {
   
   return (
     <div className="flex flex-col relative">
-      <div className="flex mb-5 rounded-md overflow-hidden">
+      <div className="flex rounded-md overflow-hidden">
         <div
           type="text"
           readOnly

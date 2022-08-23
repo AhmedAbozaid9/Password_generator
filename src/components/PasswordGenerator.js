@@ -19,7 +19,7 @@ export default function PasswordGenerator() {
       </h1>
       <Output password={password} />
       <button
-        className="bg-secondary p-3 my-5 text-white active:bg-clicked rounded-md text-lg"
+        className="bg-secondary p-3 mb-5 mt-10 text-white active:bg-clicked rounded-md text-lg"
         onClick={() => {
           setPassword(
             generatePassword({ uppercase, lowercase, numbers, symbols }, length)
