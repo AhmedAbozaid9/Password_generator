@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 
 import passwordStrength from "../utils/passwordStrength";
 
+function Strength({ strength }) {
+  const colors = { weak: "#ff9662", medium: "#fcae1e", strong: "#77dd76" };
+  const result = passwordStrength(strength);
 
-function Strength({strength}) {
- const result = `bg-${passwordStrength(strength)}`;
-
- return (
-   <div className={`${result} w-full absolute top-full rounded-md h-1`}></div>
- );
+  return (
+    <div style={{backgroundColor:colors[result]}} className={`${result} w-full absolute top-full rounded-md h-1`}></div>
+  );
 }
 
-export default Strength
+export default Strength;
